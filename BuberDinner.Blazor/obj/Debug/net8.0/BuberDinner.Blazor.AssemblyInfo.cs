@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BuberDinner.Blazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+792c4cf46996765a2f02a05ba3a32d3e1a9a5c7c")]
 [assembly: System.Reflection.AssemblyProductAttribute("BuberDinner.Blazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BuberDinner.Blazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

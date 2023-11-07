@@ -1,0 +1,13 @@
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{
+  "firstName": "Vincent",
+  "lastName": "Douglas",
+  "email": "vince@gmail.com",
+  "password": "Douglas1234"
+}
+
+> {%
+    client.global.set("token", response.body.token);
+%}

@@ -1,0 +1,12 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Users\vdter\.nuget\packages\oneof\3.0.263\lib\netstandard2.0\OneOf.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=850f8fc5_002Dba60_002D4a3c_002D90b8_002Dd03d33d84f5c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Get_ReturnsOK_OnValidRegisterRequest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::2C4C6BD6-89EC-4681-8BF0-8DF40488D226::net8.0::BuberDinner.Api.Tests.Integration.Authentication.LoginRequestTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::2C4C6BD6-89EC-4681-8BF0-8DF40488D226::net8.0::BuberDinner.Api.Tests.Integration.Authentication.RegisterRequestTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::2C4C6BD6-89EC-4681-8BF0-8DF40488D226::net8.0::BuberDinner.Api.Tests.Integration.Menu.CreateMenuRequestTests.ShouldReturnOK&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::2C4C6BD6-89EC-4681-8BF0-8DF40488D226::net8.0::BuberDinner.Api.Tests.Integration.Menu.CreateMenuRequestTests.ShouldReturnOk&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

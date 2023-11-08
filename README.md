@@ -4,8 +4,9 @@ A Blazor web app and ASP.Net web api using clean architecture following various 
 ## Credits
 [Amichai Mantinband](https://www.youtube.com/@amantinband) - initial design and architecture (BuberDinner Api)
 
+[CodeWrinkles](https://www.youtube.com/@Codewrinkles) - Blazor Authentication tutorials
 
-## Database
+## Setup
 
 ### Create Initial migration
 ```shell
@@ -20,7 +21,7 @@ docker container ls
 ```
 
 ### Sql Connection string
-> User Secrets BuberDinner.API
+> BuberDinner.API - User Secrets
 ```json
 {
   "ConnectionStrings": {

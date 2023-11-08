@@ -24,17 +24,17 @@ public static class DependencyInjection
     {
         services
             .AddAuth(builderConfiguration)
-            .AddPersistence();
+            .AddPersistence(builderConfiguration);
 
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
         return services;
     }
 
-    private static IServiceCollection AddPersistence(this IServiceCollection services)
+    private static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration config)
     {
         services.AddDbContext<BuberDinnerDbContext>(
-            options => options.UseSqlServer(
-                "Server=localhost;Database=BuberDinner;User Id=sa;Password=vterpst123!;TrustServerCertificate=true;"));
+            options => options.UseSqlServer(config.GetConnectionString("SqlDatabase")
+            ));
         services.AddScoped<PublishDomainEventsInterceptor>();
 
         services.AddScoped<IUserRepository, UserRepository>();

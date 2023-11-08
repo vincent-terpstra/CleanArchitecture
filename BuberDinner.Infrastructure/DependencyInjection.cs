@@ -3,12 +3,14 @@ using BuberDinner.Application.Authentication.Interfaces;
 using BuberDinner.Application.Common;
 using BuberDinner.Application.Menus.Interfaces;
 using BuberDinner.Application.Users;
+using BuberDinner.Domain.UserAggregates.Entities;
 using BuberDinner.Infrastructure.Authentication;
 using BuberDinner.Infrastructure.Common;
 using BuberDinner.Infrastructure.Common.Interceptors;
 using BuberDinner.Infrastructure.Menus;
 using BuberDinner.Infrastructure.Users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,11 +22,11 @@ namespace BuberDinner.Infrastructure;
 public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services,
-        ConfigurationManager builderConfiguration)
+        IConfiguration config)
     {
         services
-            .AddAuth(builderConfiguration)
-            .AddPersistence(builderConfiguration);
+            .AddAuth(config)
+            .AddPersistence(config);
 
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
         return services;
@@ -35,6 +37,20 @@ public static class DependencyInjection
         services.AddDbContext<BuberDinnerDbContext>(
             options => options.UseSqlServer(config.GetConnectionString("SqlDatabase")
             ));
+        services.AddIdentity<User, IdentityRole>(
+            options =>
+            {
+                options.Password = new PasswordOptions
+                {
+                    RequireDigit = true,
+                    RequiredLength = 8,
+                    RequireLowercase = true,
+                    RequireUppercase = true,
+                    RequireNonAlphanumeric = true
+                };
+
+                options.SignIn.RequireConfirmedEmail = false;
+            }).AddEntityFrameworkStores<BuberDinnerDbContext>();
         services.AddScoped<PublishDomainEventsInterceptor>();
 
         services.AddScoped<IUserRepository, UserRepository>();
@@ -44,10 +60,10 @@ public static class DependencyInjection
     }
 
     private static IServiceCollection AddAuth(this IServiceCollection services,
-        ConfigurationManager builderConfiguration)
+        IConfiguration config)
     {
         var jwtSettings = new JwtSettings();
-        builderConfiguration.GetSection(nameof(JwtSettings))
+        config.GetSection(nameof(JwtSettings))
             .Bind(jwtSettings);
 
         services.AddSingleton(Options.Create(jwtSettings));

@@ -1,12 +1,13 @@
 ﻿using BuberDinner.Domain.Common.Events;
 using BuberDinner.Domain.MenuAggregates.Entities;
 using BuberDinner.Infrastructure.Common.Interceptors;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BuberDinner.Infrastructure.Common;
 
-public class BuberDinnerDbContext : DbContext
+public class BuberDinnerDbContext : IdentityDbContext
 {
     private readonly PublishDomainEventsInterceptor _publishDomainEventsInterceptor;
 
